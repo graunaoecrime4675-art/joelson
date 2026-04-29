@@ -1,26 +1,72 @@
-início
-    escreva "Escolha a conversão:"
-    escreva "1 - Celsius para Fahrenheit"
-    escreva "2 - Fahrenheit para Celsius"
-    escreva "3 - Celsius para Kelvin"
-    escreva "4 - Kelvin para Celsius"
+<!DOCTYPE html>
 
-    leia opção
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
 
-    escreva "Digite a temperatura:"
-    leia valor
+```
+<h1>Conversor de Temperatura</h1>
 
-    se opção == 1 então
-        resultado = (valor * 9/5) + 32
-    senão se opção == 2 então
-        resultado = (valor - 32) * 5/9
-    senão se opção == 3 então
-        resultado = valor + 273.15
-    senão se opção == 4 então
-        resultado = valor - 273.15
-    senão
-        escreva "Opção inválida"
-    fim se
+<input type="number" id="valor" placeholder="Digite a temperatura">
 
-    escreva "Resultado: ", resultado
-fim
+<br>
+
+<select id="tipo">
+    <option value="1">Celsius → Fahrenheit</option>
+    <option value="2">Fahrenheit → Celsius</option>
+    <option value="3">Celsius → Kelvin</option>
+    <option value="4">Kelvin → Celsius</option>
+</select>
+
+<br>
+
+<button onclick="converter()">Converter</button>
+
+<div id="resultado"></div>
+
+<script>
+    function converter() {
+        let valor = parseFloat(document.getElementById("valor").value);
+        let tipo = document.getElementById("tipo").value;
+        let resultado;
+
+        if (isNaN(valor)) {
+            document.getElementById("resultado").innerText = "Digite um valor válido!";
+            return;
+        }
+
+        if (tipo == "1") {
+            resultado = (valor * 9/5) + 32;
+        } else if (tipo == "2") {
+            resultado = (valor - 32) * 5/9;
+        } else if (tipo == "3") {
+            resultado = valor + 273.15;
+        } else if (tipo == "4") {
+            resultado = valor - 273.15;
+        }
+
+        document.getElementById("resultado").innerText = "Resultado: " + resultado.toFixed(2);
+    }
+</script>
+```
+
+</body>
+</html>
