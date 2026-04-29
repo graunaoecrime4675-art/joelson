@@ -1,0 +1,26 @@
+início
+    escreva "Escolha a conversão:"
+    escreva "1 - Celsius para Fahrenheit"
+    escreva "2 - Fahrenheit para Celsius"
+    escreva "3 - Celsius para Kelvin"
+    escreva "4 - Kelvin para Celsius"
+
+    leia opção
+
+    escreva "Digite a temperatura:"
+    leia valor
+
+    se opção == 1 então
+        resultado = (valor * 9/5) + 32
+    senão se opção == 2 então
+        resultado = (valor - 32) * 5/9
+    senão se opção == 3 então
+        resultado = valor + 273.15
+    senão se opção == 4 então
+        resultado = valor - 273.15
+    senão
+        escreva "Opção inválida"
+    fim se
+
+    escreva "Resultado: ", resultado
+fim
