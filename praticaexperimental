@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Conversor de Temperatura</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div class="container">
     <h2>Conversor de Temperatura</h2>
 
     <label>Digite a temperatura:</label>
@@ -46,6 +47,6 @@
             document.getElementById("resultado").innerText = "Resultado: " + resultado.toFixed(2);
         }
     </script>
-
+</div>
 </body>
 </html>
