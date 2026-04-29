@@ -1,72 +1,51 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Conversor de Temperatura</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        input, select, button {
-            padding: 10px;
-            margin: 5px;
-        }
-        #resultado {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
 
-```
-<h1>Conversor de Temperatura</h1>
+    <h2>Conversor de Temperatura</h2>
 
-<input type="number" id="valor" placeholder="Digite a temperatura">
+    <label>Digite a temperatura:</label>
+    <input type="number" id="temp">
 
-<br>
+    <br><br>
 
-<select id="tipo">
-    <option value="1">Celsius → Fahrenheit</option>
-    <option value="2">Fahrenheit → Celsius</option>
-    <option value="3">Celsius → Kelvin</option>
-    <option value="4">Kelvin → Celsius</option>
-</select>
+    <label>Escolha a conversão:</label>
+    <select id="tipo">
+        <option value="cf">Celsius → Fahrenheit</option>
+        <option value="fc">Fahrenheit → Celsius</option>
+        <option value="ck">Celsius → Kelvin</option>
+        <option value="kc">Kelvin → Celsius</option>
+    </select>
 
-<br>
+    <br><br>
 
-<button onclick="converter()">Converter</button>
+    <button onclick="converter()">Converter</button>
 
-<div id="resultado"></div>
+    <h3 id="resultado"></h3>
 
-<script>
-    function converter() {
-        let valor = parseFloat(document.getElementById("valor").value);
-        let tipo = document.getElementById("tipo").value;
-        let resultado;
+    <script>
+        function converter() {
+            let temp = parseFloat(document.getElementById("temp").value);
+            let tipo = document.getElementById("tipo").value;
+            let resultado;
 
-        if (isNaN(valor)) {
-            document.getElementById("resultado").innerText = "Digite um valor válido!";
-            return;
+            if (tipo === "cf") {
+                resultado = (temp * 9/5) + 32;
+            } else if (tipo === "fc") {
+                resultado = (temp - 32) * 5/9;
+            } else if (tipo === "ck") {
+                resultado = temp + 273.15;
+            } else if (tipo === "kc") {
+                resultado = temp - 273.15;
+            }
+
+            document.getElementById("resultado").innerText = "Resultado: " + resultado.toFixed(2);
         }
-
-        if (tipo == "1") {
-            resultado = (valor * 9/5) + 32;
-        } else if (tipo == "2") {
-            resultado = (valor - 32) * 5/9;
-        } else if (tipo == "3") {
-            resultado = valor + 273.15;
-        } else if (tipo == "4") {
-            resultado = valor - 273.15;
-        }
-
-        document.getElementById("resultado").innerText = "Resultado: " + resultado.toFixed(2);
-    }
-</script>
-```
+    </script>
 
 </body>
 </html>
